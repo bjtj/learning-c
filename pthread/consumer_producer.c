@@ -31,6 +31,7 @@ void * consumer(void * arg)
 	    break;
 	}
     }
+    return 0;
 }
 
 void * producer(void * arg)
@@ -46,6 +47,7 @@ void * producer(void * arg)
     sem_wait(&data->sem);
     queue_push(data->queue, -1);
     sem_post(&data->sem);
+    return 0;
 }
 
 shared_data_t * shared_data_new(void)
